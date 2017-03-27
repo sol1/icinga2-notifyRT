@@ -11,6 +11,7 @@ Notify_RT is an icinga2 plugin which creates tickets in an external RT system wh
 
 ### Dependencies
  - requests library `pip install requests` or `pip3`
+ - To make RT ticket ID's clickable install [Icinga/icingaweb2-module-generictts](https://github.com/Icinga/icingaweb2-module-generictts)
 
 ### TODO
  - Better error logging
