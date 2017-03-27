@@ -110,6 +110,21 @@ def set_status_rt(ticket_id, status="open"):
 
     return
 
+def set_subject_recovered_rt(ticket_id):
+    '''Set rt ticket subject'''
+
+    subject = "{} {} - Recovered".format(ARGS.host, ARGS.service)
+
+    ticket_data = "Subject: {}\n".format(subject)
+
+    SESSION.post(
+        CONFIG['rt_addr'] + "/REST/1.0/ticket/{id}/edit".format(
+            id=ticket_id),
+        data={"content": ticket_data},
+        headers=dict(Referer=CONFIG['rt_addr']))
+
+    return
+
 def get_comments_icinga(username, password, hostname, servicename):
     '''Get all icinga comments associated with a hostname'''
 
@@ -211,6 +226,7 @@ if ARGS.type != "ACKNOWLEDGEMENT":
         print("Server/host back up")
         add_comment_rt(TICKET_ID)
         set_status_rt(TICKET_ID)
+        set_subject_recovered_rt(TICKET_ID)
         delete_comments_icinga(
             CONFIG['icinga_user'],
             CONFIG['icinga_pass'],
