@@ -225,8 +225,8 @@ if ARGS.type != "ACKNOWLEDGEMENT":
     elif ARGS.state == "OK" or ARGS.state == "UP":
         print("Server/host back up")
         add_comment_rt(TICKET_ID)
-        set_status_rt(TICKET_ID)
         set_subject_recovered_rt(TICKET_ID)
+        set_status_rt(TICKET_ID)
         delete_comments_icinga(
             CONFIG['icinga_user'],
             CONFIG['icinga_pass'],
