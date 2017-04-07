@@ -1,0 +1,18 @@
+name: Notify_RT
+description: "file:///README.md"
+url: "https://github.com/sol1/icinga2-notifyRT"
+tags: Statistic
+vendor: Linux
+target: Operating System
+type: Plugin
+license: gplv3
+releases: 
+  - 
+    name: 1.0
+    description: "1.0 Release"
+    files: 
+      - 
+        name: Notify_RT
+        url: "https://github.com/sol1/icinga2-notifyRT/archive/1.0.tar.gz"
+        description: "First release"
+        checksum: 5fe7a75c8093152be1b6e587cbab5b8e
