@@ -191,7 +191,7 @@ def delete_comments_icinga(username, password, comments):
 
     return
 
-def parse_rt_field(field_data)
+def parse_rt_field(field_data):
     '''Adds padding to multi-line RT Field data (Required by RT REST API)'''
     result = ""
     for line in field_data.splitlines(True):
