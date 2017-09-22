@@ -50,7 +50,7 @@ def create_ticket_rt(subject):
     message += " Host: {}\n".format(os.environ['HOSTALIAS'])
     message += " Address: {}\n".format(os.environ['HOSTADDRESS'])
     message += " State: {}\n \n".format(state)
-    message += " Additional Info: {}\n \n".format(additional_output)
+    message += " Additional Info: {}\n \n".format(parse_rt_field(additional_output))
     message += " Comment: [{}] {}\n".format(
         os.environ['NOTIF_AUTH_NAME'],
         os.environ['NOTIF_COMMENT'])
@@ -190,6 +190,14 @@ def delete_comments_icinga(username, password, comments):
             syslog.syslog(json.dumps(res.text))
 
     return
+
+def parse_rt_field(field_data)
+    '''Adds padding to multi-line RT Field data (Required by RT REST API)'''
+    result = ""
+    for line in field_data.splitlines():
+        result += ("  " + line)
+    
+    return result
 
 authenticate_rt(CONFIG['rt_user'], CONFIG['rt_pass'])
 
