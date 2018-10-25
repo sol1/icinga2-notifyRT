@@ -7,7 +7,7 @@ Notify_RT is an icinga2 plugin which creates tickets in an external RT system wh
  - Copy `notify_rt.json` and `notify_rt.py` to `/etc/icinga2/scripts/`
  - Copy `notify-rt.conf` to `/etc/icinga2/zones.d/global-templates`
  - Modify the configuration files appropriately
- - Set `var.notify_rt = "enabled"` on the hosts you want checked
+ - Set `vars.notify_rt = true` on the hosts and services you want to be notified about
 
 ### Dependencies
  - requests library `pip install requests` or `pip3`
