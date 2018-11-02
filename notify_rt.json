@@ -1,7 +1,6 @@
 {
 	"rt_name": "rtInstance",
 	"rt_addr": "https://rt.example.com",
-	"rt_queue": "icinga",
 	"rt_user": "rtbot",
 	"rt_pass": "Fant@st1cp@sswOrd",
 	"icinga_addr": "https://localhost:5665",

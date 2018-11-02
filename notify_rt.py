@@ -29,6 +29,8 @@ PARSER.add_argument('--service', dest='service', default="",
                     help='check service name')
 PARSER.add_argument('--requestor', dest='requestor', default="",
                     help='email address to set RT ticket requestor as')
+PARSER.add_argument('--queue', dest='queue', default="icinga",
+                    help='queue to create RT ticket in')
 
 ARGS = PARSER.parse_args()
 
@@ -56,7 +58,7 @@ def create_ticket_rt(subject):
         os.environ['NOTIF_COMMENT'])
 
     ticket_data = "id: ticket/new\n"
-    ticket_data += "Queue: {}\n".format(CONFIG['rt_queue'])
+    ticket_data += "Queue: {}\n".format(ARGS.queue)
     ticket_data += "Requestor: {}\n".format(ARGS.requestor)
     ticket_data += "Subject: {}\n".format(subject)
     ticket_data += "Text: {}".format(message)
